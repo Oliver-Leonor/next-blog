@@ -1,4 +1,6 @@
+import Image from "next/image"
 import Link from "next/link"
+import '../styles/globals.css'
 
 export const metadata = {
   title: 'Next.js',
@@ -12,20 +14,19 @@ export default function RootLayout({
 }) {
   const header = (
     <header>
-      <div>
+      <div className="text-center bg-slate-800 p-8 my-6 rounded-md">
+        <Image src='/logo.png' width={40} height={40} className='mx-auto' alt='logo' />
         <Link href='/'>
-          <h1>Oliver's Blog</h1>
+          <h1 className="text-2xl text-white font-bold mt-4">Oliver's Blog</h1>
         </Link>  
-        <p>🤟 Welcome to my tech blog. 💻</p>
-        <br />
+        <p className="text-slate-300">🤟 Welcome to my tech blog. 💻</p>
       </div>
     </header>
   )
 
   const footer = (
     <footer>
-      <div>
-        <br />
+      <div className="border-t border-slate-400 mt-12 py-12 text-center text-slate-400">
         <h3>Developed by Oliver</h3>
       </div>
     </footer>
@@ -34,9 +35,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {header}
-        {children}
-        {footer}
+        <div className="mx-auto max-w-2xl px-6">
+          {header}
+          {children}
+          {footer}
+        </div>
       </body>
     </html>
   )
